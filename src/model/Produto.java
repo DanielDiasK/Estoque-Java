@@ -18,10 +18,22 @@ public class Produto implements Serializable {
         this.quantidade = quantidade;
     }
     
-    // Getters e Setters
+    // Getters
     public String getCodigo() { return codigo; }
     public String getNome() { return nome; }
     public BigDecimal getPreco() { return preco; }
     public int getQuantidade() { return quantidade; }
-    public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
+    
+    // Setters
+    public void setNome(String nome) { 
+        this.nome = nome; 
+    }
+    
+    public void setPreco(BigDecimal preco) { 
+        this.preco = preco; 
+    }
+    
+    public void setQuantidade(int quantidade) { 
+        this.quantidade = quantidade; 
+    }
 }

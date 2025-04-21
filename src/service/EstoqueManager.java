@@ -12,6 +12,9 @@ public class EstoqueManager {
     public EstoqueManager() {
         this.produtos = new ArrayList<>();
         carregarDados();
+        if (this.produtos == null) { // Garantir que produtos nunca seja null
+            this.produtos = new ArrayList<>();
+        }
     }
 
     public void adicionarProduto(Produto produto) {
@@ -20,11 +23,13 @@ public class EstoqueManager {
     }
 
     public void removerProduto(Produto produto) {
-        produtos.remove(produto);
-        salvarDados();
+        if (produto != null) {
+            produtos.remove(produto);
+            salvarDados();
+        }
     }
 
-    private void salvarDados() {
+    public void salvarDados() {
         try (ObjectOutputStream oos = new ObjectOutputStream(
                 new FileOutputStream(ARQUIVO_DADOS))) {
             oos.writeObject(produtos);
